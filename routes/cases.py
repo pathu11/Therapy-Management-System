@@ -18,4 +18,4 @@ def add_case():
     if not name:
         return jsonify({'error': 'Case name is required!'}), 400
     Case.add_case(name, description)
-    return jsonify({'message': 'Case added successfully!'})
+    return jsonify({'message': 'Case added successfully!'}),200
