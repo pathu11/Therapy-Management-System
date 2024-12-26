@@ -8,8 +8,13 @@ def create_app():
     
     app.register_blueprint(auth_blueprint, url_prefix='/')
     app.register_blueprint(cases_blueprint, url_prefix='/')
-    init_db()
     
+    init_db()
+
+    @app.route('/')
+    def welcome():
+        return "Welcome to the Mental Health Institute API!"
+
     return app
 
 app = create_app()
