@@ -40,7 +40,7 @@ def login():
     if not check_password_hash(user['password'], password):
         return jsonify({'error': 'Invalid credentials!'}), 401
     
-    token = generate_jwt({'username': username, 'role': user['role']})
+    token = generate_jwt({'userid':user['id'],'username': username, 'role': user['role']})
 
     return jsonify({'token': token})
 

@@ -12,6 +12,7 @@ This is a Flask-based API for managing therapy client cases in a mental health i
 3. Therapy Case Management
     * GET /cases/cases: Fetch the list of all therapy cases.
     * POST /cases/case: Add a new therapy case.
+    * DELETE /cases/case/<id> :Delete the therapy case by added user
 4. JWT Authentication
 
 ## File Structure:
@@ -20,7 +21,7 @@ This is a Flask-based API for managing therapy client cases in a mental health i
 * routes/: Contains the blueprints for authentication and case management, each in their respective files.
 * db.py: Handles database connection and setup. This file contains the logic for connecting to the SQLite3 database and initializing the tables using SQL queries from setup_db.sql.
 * models.py: Contains classes that represent database models (User and Case), with methods for interacting with the database (e.g., adding users or retrieving cases).
-* jwt_util.py: Provides functions for generating and decoding JWT tokens.
+* jwt_util.py: Provides functions for generating and decoding JWT tokens and retrieving the user ids of current login users.
 * wrapper.py: Defines the token_required decorator, ensuring that routes requiring authentication are protected.
 * build.sh /vercel.json:Use for the deployment using vercel.
 * .env  : use to define secret key that used for authentication
@@ -151,6 +152,11 @@ python app.py
 }
 
 ```
+  * Headers: Authorization: Bearer your_jwt_token_here
+
+7. Delete the case by added user(It can be deleted only by added user):
+  * Method: DELETE
+  * URL: http://127.0.0.1:5000/cases/case/<case_id>
   * Headers: Authorization: Bearer your_jwt_token_here
 
 ##  Deployment on Vercel

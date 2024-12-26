@@ -20,12 +20,23 @@ class User:
 
 class Case:
     @staticmethod
-    def add_case(name, description):
+    def add_case(userid, name, description):
         db = get_db()
-        db.execute('INSERT INTO cases (name, description) VALUES (?, ?)', (name, description))
+        db.execute('INSERT INTO cases (userid,name, description) VALUES (?, ?, ?)', (userid, name, description))
         db.commit()
 
     @staticmethod
     def get_all_cases():
         db = get_db()
         return db.execute('SELECT * FROM cases').fetchall()
+    
+    @staticmethod
+    def get_case_by_id(case_id):
+        db = get_db()
+        return db.execute('SELECT * FROM cases WHERE id = ?', (case_id,)).fetchone()
+
+    @staticmethod
+    def delete_case(case_id):
+        db = get_db()
+        db.execute('DELETE FROM cases WHERE id = ?', (case_id,))
+        db.commit()
