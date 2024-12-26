@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify,session
-from models import Case
-from wrapper import token_required
+from models.models import Case
+from utils.wrapper import token_required
 cases_blueprint= Blueprint('cases', __name__)
 cb= cases_blueprint
 

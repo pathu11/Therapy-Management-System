@@ -1,4 +1,4 @@
-from db import get_db
+from models.db import get_db
 
 class User:
     @staticmethod

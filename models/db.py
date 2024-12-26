@@ -1,6 +1,6 @@
 import sqlite3
 
-DATABASE = 'mental_health.db'
+DATABASE = 'database/mental_health.db'
 
 def get_db():
     conn = sqlite3.connect(DATABASE)
@@ -8,7 +8,7 @@ def get_db():
     return conn
 
 def init_db():
-    with open('migrations/setup_db.sql', 'r') as f:
+    with open('database/setup_db.sql', 'r') as f:
         query = f.read()
     conn = get_db()
     conn.executescript(query)

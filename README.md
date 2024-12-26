@@ -47,7 +47,8 @@ pip install -r requirements.txt
         app = create_app()
         app.run(debug=True)  # Will run on http://127.0.0.1:5000
 ```
-2. **Running Locally**: For local development, users will run `python app.py`, and the application will be accessible at `http://127.0.0.1:5000`.
+2. **Running Locally**: 
+For local development, users will run `python app.py`, and the application will be accessible at `http://127.0.0.1:5000`.
 
 ```bash 
 python app.py

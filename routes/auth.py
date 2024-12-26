@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify,session
-from models import User
+from models.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
-from jwt_util import generate_jwt
-from wrapper import token_required
+from utils.jwt_util import generate_jwt
+from utils.wrapper import token_required
 
 auth_blueprint = Blueprint('auth', __name__)
 ab=auth_blueprint

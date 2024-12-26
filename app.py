@@ -1,7 +1,7 @@
 from flask import Flask
 from routes.auth import auth_blueprint
 from routes.cases import cases_blueprint
-from db import init_db
+from models.db import init_db
 
 def create_app():
     app = Flask(__name__)
