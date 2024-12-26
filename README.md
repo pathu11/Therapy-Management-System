@@ -24,6 +24,7 @@ This is a Flask-based API for managing therapy client cases in a mental health i
 * wrapper.py: Defines the token_required decorator, ensuring that routes requiring authentication are protected.
 * build.sh /vercel.json:Use for the deployment using vercel.
 * .env  : use to define secret key that used for authentication
+
 ## Backend Setup Instructions
 1.   Clone the Repository
 ```
