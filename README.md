@@ -1,6 +1,6 @@
 # Mental Health Therapy Management API
 ## API Overview
-This is a Flask-based API for managing therapy client cases in a mental health institute. The API includes features for user authentication, role management, and case management using JWT tokenization for secure authentication. *** SQLite *** is used for storing user credentials and case data. The backend is deployed publicly and is testable via Postman.
+This is a Flask-based API for managing therapy client cases in a mental health institute. The API includes features for user authentication, role management, and case management using JWT tokenization for secure authentication. **SQLite** is used for storing user credentials and case data. The backend is deployed publicly and is testable via Postman.
 
 ## Features
 1. User Authentication
@@ -17,7 +17,7 @@ This is a Flask-based API for managing therapy client cases in a mental health i
 ## Backend Setup Instructions
 1.   Clone the Repository
 ```
-git clone [https://github.com/pathu11/Therapy-Management-System.git](https://github.com/pathu11/Therapy-Management-System.git)
+git clone https://github.com/pathu11/Therapy-Management-System.git
 cd Therapy-Management-System
 ```
 2. Install Dependencies
