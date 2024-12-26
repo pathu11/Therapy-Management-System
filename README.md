@@ -52,16 +52,17 @@ pip install -r requirements.txt
  #### To run the application locally, follow these steps:
 
   1. **Generate the Secret Key**
+
     Before running the application, you need to generate a secret key for  JWT token signing.
-    * Navigate to the project directory and run config.py .
-    ```bash
+  *  Navigate to the project directory and run config.py .
+```bash
      python config.py
-    ```
-    * Copy that generated key from terminal and create .env file like below.
-    ```bash
+```
+  *  Copy that generated key from terminal and create .env file like below.
+```bash
     SECRET_KEY=your_generated_secret_key
-    ```
-    * Or you can create a SECRET_KEY manually .
+```
+  * Or you can create a SECRET_KEY manually .
 
   2. **Modify app.py to work locally (replace 'app = create_app()' with this code segment )**
 ```bash
