@@ -48,7 +48,7 @@ jobs:
       run: |
         echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}, USER: ${GITHUB_REPOSITORY%/*}, PROJECT_BASE_URL: ${GITHUB_REPOSITORY#*/}"
         flutter config --no-analytics
-        flutter build web --route-url-strategy hash
+        flutter build web  # No additional options needed here
 
     - name: Upload Artifact
       uses: actions/upload-pages-artifact@v3
