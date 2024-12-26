@@ -1,6 +1,6 @@
 # Mental Health Therapy Management API
 ## API Overview
-This is a Flask-based API for managing therapy client cases in a mental health institute. The API includes features for user authentication, role management, and case management using JWT tokenization for secure authentication. *** SQLite *** is used for storing user credentials and case data. The backend is deployed publicly and is testable via Postman.
+This is a Flask-based API for managing therapy client cases in a mental health institute. The API includes features for user authentication, role management, and case management using JWT tokenization for secure authentication. **SQLite** is used for storing user credentials and case data. The backend is deployed publicly and is testable via Postman.
 
 ## Features
 1. User Authentication
@@ -14,10 +14,20 @@ This is a Flask-based API for managing therapy client cases in a mental health i
     * POST /cases/case: Add a new therapy case.
 4. JWT Authentication
 
+## File Structure:
+
+* app.py: The main entry point of the application, initializes the Flask app, sets up the blueprints, and starts the app.
+* routes/: Contains the blueprints for authentication and case management, each in their respective files.
+* db.py: Handles database connection and setup. This file contains the logic for connecting to the SQLite3 database and initializing the tables using SQL queries from setup_db.sql.
+* models.py: Contains classes that represent database models (User and Case), with methods for interacting with the database (e.g., adding users or retrieving cases).
+* jwt_util.py: Provides functions for generating and decoding JWT tokens.
+* wrapper.py: Defines the token_required decorator, ensuring that routes requiring authentication are protected.
+* build.sh /vercel.json:Use for the deployment using vercel.
+* .env  : use to define secret key that used for authentication
 ## Backend Setup Instructions
 1.   Clone the Repository
 ```
-git clone [https://github.com/pathu11/Therapy-Management-System.git](https://github.com/pathu11/Therapy-Management-System.git)
+git clone https://github.com/pathu11/Therapy-Management-System.git
 cd Therapy-Management-System
 ```
 2. Install Dependencies
@@ -63,7 +73,7 @@ python app.py
   * URL: http://127.0.0.1:5000/auth/register
   * Body:
 ```bash
-  {
+{
         "fullname":"new user name".
         "username": "newuser",
         "password": "newpassword"
@@ -74,7 +84,7 @@ python app.py
   * URL: http://127.0.0.1:5000/auth/login
   * Body:
 ```bash
-  {
+{
         
         "username": "user name",
         "password": "user's password"
@@ -104,10 +114,9 @@ python app.py
   * URL: http://127.0.0.1:5000/auth/demote
   * Body:
 ```bash
-  {
-       
-        "username": "user name",
-        "password": "user's password"
+{   
+    "username": "user name",
+    "password": "user's password"
 }
 ```
   * Headers: Authorization: Bearer your_jwt_token_here
@@ -141,6 +150,7 @@ python app.py
 
  ### Why Not Use GitHub Pages?
  GitHub Pages is designed for hosting static websites and cannot run server-side code like Flask. In contrast, Vercel is built for deploying dynamic, serverless applications, including Flask APIs. Vercel handles server setup, scaling, and deployment, making it the ideal choice for hosting a Flask API with full backend support.
+
 ## Backend Deployed on Vercel
 This backend has been deployed using Vercel. You can access and test the API using the following link:
  [Mental Health Therapy API on Vercel](https://therasphere.vercel.app/)
