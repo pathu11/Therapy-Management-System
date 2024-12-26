@@ -14,6 +14,17 @@ This is a Flask-based API for managing therapy client cases in a mental health i
     * POST /cases/case: Add a new therapy case.
 4. JWT Authentication
 
+## File Structure:
+
+* app.py: The main entry point of the application, initializes the Flask app, sets up the blueprints, and starts the app.
+* routes/: Contains the blueprints for authentication and case management, each in their respective files.
+* db.py: Handles database connection and setup. This file contains the logic for connecting to the SQLite3 database and initializing the tables using SQL queries from setup_db.sql.
+* models.py: Contains classes that represent database models (User and Case), with methods for interacting with the database (e.g., adding users or retrieving cases).
+* jwt_util.py: Provides functions for generating and decoding JWT tokens.
+* wrapper.py: Defines the token_required decorator, ensuring that routes requiring authentication are protected.
+* build.sh /vercel.json:Use for the deployment using vercel.
+* .env  : use to define secret key that used for authentication
+
 ## Backend Setup Instructions
 1.   Clone the Repository
 ```
@@ -40,22 +51,34 @@ pip install -r requirements.txt
 ## Start the Application
  #### To run the application locally, follow these steps:
 
-  1. Modify app.py to work locally (replace 'app = create_app()' with this code segment )
+  1. **Generate the Secret Key**
+
+    Before running the application, you need to generate a secret key for  JWT token signing.
+  *  Navigate to the project directory and run config.py .
+```bash
+     python config.py
+```
+  *  Copy that generated key from terminal and create .env file like below.
+```bash
+    SECRET_KEY=your_generated_secret_key
+```
+  * Or you can create a SECRET_KEY manually .
+
+  2. **Modify app.py to work locally (replace 'app = create_app()' with this code segment )**
 ```bash
    # Local development environment condition
     if __name__ == '__main__':
         app = create_app()
         app.run(debug=True)  # Will run on http://127.0.0.1:5000
 ```
-2. **Running Locally**: 
-For local development, users will run `python app.py`, and the application will be accessible at `http://127.0.0.1:5000`.
+   3. **Running Locally**: For local development, users will run `python app.py`, and the application will be accessible at `http://127.0.0.1:5000`.
 
 ```bash 
 python app.py
 ```
 #### The server will start running, typically on http://127.0.0.1:5000
 
-3. **Deployment on Vercel**: For deployment, Vercel takes care of the serverless deployment, so you don't need the `if __name__ == '__main__':` block in your deployed version. This block is just for local development.
+  4. **Deployment on Vercel**: For deployment, Vercel takes care of the serverless deployment, so you don't need the `if __name__ == '__main__':` block in your deployed version. This block is just for local development.
 
 
 ## Testing the API Using Postman
@@ -64,7 +87,7 @@ python app.py
   * URL: http://127.0.0.1:5000/auth/register
   * Body:
 ```bash
-  {
+{
         "fullname":"new user name".
         "username": "newuser",
         "password": "newpassword"
@@ -75,7 +98,7 @@ python app.py
   * URL: http://127.0.0.1:5000/auth/login
   * Body:
 ```bash
-  {
+{
         
         "username": "user name",
         "password": "user's password"
@@ -105,10 +128,9 @@ python app.py
   * URL: http://127.0.0.1:5000/auth/demote
   * Body:
 ```bash
-  {
-       
-        "username": "user name",
-        "password": "user's password"
+{   
+    "username": "user name",
+    "password": "user's password"
 }
 ```
   * Headers: Authorization: Bearer your_jwt_token_here
@@ -142,6 +164,7 @@ python app.py
 
  ### Why Not Use GitHub Pages?
  GitHub Pages is designed for hosting static websites and cannot run server-side code like Flask. In contrast, Vercel is built for deploying dynamic, serverless applications, including Flask APIs. Vercel handles server setup, scaling, and deployment, making it the ideal choice for hosting a Flask API with full backend support.
+
 ## Backend Deployed on Vercel
 This backend has been deployed using Vercel. You can access and test the API using the following link:
  [Mental Health Therapy API on Vercel](https://therasphere.vercel.app/)
