@@ -51,21 +51,33 @@ pip install -r requirements.txt
 ## Start the Application
  #### To run the application locally, follow these steps:
 
-  1. Modify app.py to work locally (replace 'app = create_app()' with this code segment )
+  1. **Generate the Secret Key**
+    Before running the application, you need to generate a secret key for  JWT token signing.
+    * Navigate to the project directory and run config.py .
+    ```bash
+     python config.py
+    ```
+    * Copy that generated key from terminal and create .env file like below.
+    ```bash
+    SECRET_KEY=your_generated_secret_key
+    ```
+    * Or you can create a SECRET_KEY manually .
+
+  2. **Modify app.py to work locally (replace 'app = create_app()' with this code segment )**
 ```bash
    # Local development environment condition
     if __name__ == '__main__':
         app = create_app()
         app.run(debug=True)  # Will run on http://127.0.0.1:5000
 ```
-2. **Running Locally**: For local development, users will run `python app.py`, and the application will be accessible at `http://127.0.0.1:5000`.
+   3. **Running Locally**: For local development, users will run `python app.py`, and the application will be accessible at `http://127.0.0.1:5000`.
 
 ```bash 
 python app.py
 ```
 #### The server will start running, typically on http://127.0.0.1:5000
 
-3. **Deployment on Vercel**: For deployment, Vercel takes care of the serverless deployment, so you don't need the `if __name__ == '__main__':` block in your deployed version. This block is just for local development.
+  4. **Deployment on Vercel**: For deployment, Vercel takes care of the serverless deployment, so you don't need the `if __name__ == '__main__':` block in your deployed version. This block is just for local development.
 
 
 ## Testing the API Using Postman
