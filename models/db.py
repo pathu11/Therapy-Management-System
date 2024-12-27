@@ -1,6 +1,6 @@
 import sqlite3
 
-DATABASE = './mental_health.db'
+DATABASE = '/tmp/mental_health.db'
 
 def get_db():
     conn = sqlite3.connect(DATABASE)
