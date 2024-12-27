@@ -7,7 +7,7 @@ cases_blueprint= Blueprint('cases', __name__)
 cb= cases_blueprint
 
 @cb.route('/cases', methods=['GET'])
-@token_required
+# @token_required
 def get_cases():
     cases = Case.get_all_cases()
     return jsonify([dict(row) for row in cases])
