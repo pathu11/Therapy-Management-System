@@ -72,7 +72,8 @@ pip install -r requirements.txt
         app = create_app()
         app.run(debug=True)  # Will run on http://127.0.0.1:5000
 ```
-   3. **Running Locally**: For local development, users will run `python app.py`, and the application will be accessible at `http://127.0.0.1:5000`.
+   3. **Adjust database file location**:For Deployment, Database file (mental_health.db) located in /tmp Location .But for the local development, you can change that location to be relatively in the **models/db.py** function.
+   4. **Running Locally**: For local development, users will run `python app.py`, and the application will be accessible at `http://127.0.0.1:5000`.
 
 ```bash 
 python app.py
